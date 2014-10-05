@@ -58,8 +58,9 @@ module UIAuto
       if DEVICES.keys.include?(simulator) && DEVICES[simulator].include?(sdk)
         xcode_path     = `xcode-select --print-path`.strip
         simulator_path = File.join(xcode_path, "/Platforms/iPhoneSimulator.platform/Developer/Applications/iPhone Simulator.app")
+        simulator_path_Xcode6 = File.join(xcode_path, "/Platforms/iPhoneSimulator.platform/Developer/Applications/iOS Simulator.app")
 
-        `open "#{simulator_path}"`
+        `open "#{simulator_path_Xcode6}"`
 
         sdk_item = SDK_ITEMS[sdk]
         uiauto_root = Gem::Specification.find_by_name("uiauto").gem_dir
