@@ -23,7 +23,7 @@ module UIAuto
 
     def initialize(sdk_version = DEFAULT_SDK)
       @sdk_version = sdk_version
-      @simulator_environment_path = File.expand_path("~/Library/Application Support/iPhone Simulator")
+      @simulator_environment_path = File.expand_path("~/Library/Developer/CoreSimulator/Devices/")
     end
 
     def reset
@@ -51,7 +51,7 @@ module UIAuto
     end
 
     def self.close
-      `killall "iPhone Simulator" &> /dev/null || true`
+      `killall "iOS Simulator" &> /dev/null || true`
     end
 
     def self.open(simulator = DEFAULT_DEVICE, sdk = DEFAULT_SDK)
